@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :recipes, only: [:index, :show]
+  resources :recipes, only: [:index, :show, :new, :create]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

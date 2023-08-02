@@ -1,1 +1,9 @@
-<h2>Recipes details</h2>
+<h2><%= @recipe.name %></h2>
+<p><strong>Description:</strong> <%= @recipe.description %></p>
+<p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
+<p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
+<p><strong>Public:</strong> <%= @recipe.public ? "Yes" : "No" %></p>
+
+<%= link_to "Back to Recipes", recipes_path %>
+<%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+
