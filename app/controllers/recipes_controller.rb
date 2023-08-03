@@ -6,15 +6,28 @@ class RecipesController < ApplicationController
     @recipes = Recipe.includes([:user]).where(user: current_user)
   end
 
-  def show
-    @recipe = Recipe.includes(:user, :recipe_foods).find(params[:id])
-    @recipe_food = RecipeFood.new
+  # def show
+  #   @recipe = Recipe.includes(:user, :recipe_foods).find(params[:id])
+  #   @recipe_food = RecipeFood.new
 
-    if @recipe.public? || current_user == @recipe.user
-      # Display the recipe details as in the wireframe
-    else
-      redirect_to recipes_path, alert: 'You are not authorized to view this private recipe.'
-    end
+  #   if @recipe.public? || current_user == @recipe.user
+  #     # Display the recipe details as in the wireframe
+  #   else
+  #     redirect_to recipes_path, alert: 'You are not authorized to view this private recipe.'
+  #   end
+  # end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+    @foods = Food.joins(:recipe_foods).where(recipe_foods: { recipe_id: @recipe.id })
+  
+    # Calculate total food items
+    @total_food_items = @foods.length
+  
+    # Calculate total price
+    @total_price = @foods.sum(&:price)
+  
+    # Now, you can use @total_food_items and @total_price in the view to display the details.
   end
 
   def new
