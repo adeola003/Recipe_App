@@ -47,10 +47,6 @@
   width: 100%;
 }
 
-
-/* Styles for the show view */
-
-/* Add this CSS to the existing styles */
 .show-recipe-container {
   max-width: 600px;
   margin: 0 auto;
