@@ -1,6 +1,53 @@
-<h1>Welcome To Your Recipe App</h1>
-<p>Click on the following links</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Your Recipe App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<%= link_to "Login", new_user_session_path %>
-<%= link_to "Register", new_user_registration_path %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "welcome", media: "all" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
+  <body>
+    <header>
+      <h1>Welcome To Your Recipe App</h1>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Discover New Recipes</h2>
+        <p>Explore a variety of delicious recipes from our collection.</p>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <i class="fas fa-search"></i>
+          <h3>Search</h3>
+          <p>Find your favorite recipes easily with our search feature.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-heart"></i>
+          <h3>Save Favorites</h3>
+          <p>Save your favorite recipes to access them anytime.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-clock"></i>
+          <h3>Quick and Easy</h3>
+          <p>Get recipes with easy-to-follow instructions for a quick cooking experience.</p>
+        </div>
+      </section>
+
+      <section class="call-to-action">
+        <a href="<%= new_user_registration_path %>" class="btn btn-primary">Get Started</a>
+        <a href="<%= new_user_session_path %>" class="btn btn-secondary">Login</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <%= Time.now.year %> Your Recipe App. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
