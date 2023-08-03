@@ -16,8 +16,4 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  
-  get '/public_recipies', to: 'recipies#public_recipies'
-  root "recipes#public_recipies"
 end
-
