@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @recipes = Recipe.includes(:user).all
+    @recipes = Recipe.includes([:user]).where(user: current_user)
   end
 
   def show
@@ -56,6 +56,9 @@ class RecipesController < ApplicationController
   #     redirect_to recipes_path, alert: "You are not authorized to edit this recipe."
   #   end
   # end
+  def public_recipies
+    @public = Recipe.includes(:user, :recipe_foods).where(public: true).order('created_at DESC')
+  end
 
   def destroy
     @recipe = Recipe.find(params[:id])

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       patch :toggle_public
     end
   end
-
+  get '/public_recipies', to: 'recipes#public_recipies'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
