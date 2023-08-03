@@ -1,4 +1,7 @@
 <h2><%= @recipe.name %></h2>
+<%= button_to toggle_public_recipe_path(@recipe), method: :patch, class: "toggle-public-btn" do %>
+  <%= @recipe.public? ? "Make Private" : "Make Public" %>
+<% end %>
 <p><strong>Description:</strong> <%= @recipe.description %></p>
 <p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
 <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>

@@ -1,0 +1,52 @@
+.recipe-element {
+    display: flex;
+    border: solid black 1px;
+    width: 60vw;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+.title-del {
+    width: 20%;
+    padding-left: 15px;
+}
+
+.recipe-name, .del-btn {
+    justify-content: center;
+
+}
+
+
+
+/* Style the delete button */
+.title-del button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .title-del button:hover {
+    opacity: 0.8; /* Add a bit of opacity when hovering over the buttons */
+  }
+
+  .new-recipe-btn {
+    color: rgb(33, 69, 76);
+    font-weight: 500;
+
+  }
+
+  .title-del a {
+    text-decoration: none;
+    color: rgb(33, 69, 76);
+  }
+
+  .title-del a:hover {
+    text-decoration: underline;
+  }
+
+  .description {
+    width: 100%;
+  }
+
