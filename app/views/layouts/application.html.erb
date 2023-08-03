@@ -15,14 +15,13 @@
   <nav>
       <ul>
         <li><%= link_to "Home", root_path %></li>
-
         <li><%= link_to "Recipes", recipes_path %></li>
         <li><%= link_to "New Recipe", new_recipe_path %></li>
       </ul>
       <div> <% if user_signed_in? %>
           <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "signout-btn" %>
         <% else %>
-          <li><%= button_to "Login", new_user_session_path %></li>
+          <%= button_to "Login", new_user_session_path %>
         <% end %>
         </div>
     </nav>

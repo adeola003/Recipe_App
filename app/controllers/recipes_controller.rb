@@ -1,6 +1,6 @@
 # app/controllers/recipes_controller.rb
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @recipes = Recipe.includes(:user).all
@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     if @recipe.public? || current_user == @recipe.user
       # Display the recipe details as in the wireframe
     else
-      redirect_to recipes_path, alert: "You are not authorized to view this private recipe."
+      redirect_to recipes_path, alert: 'You are not authorized to view this private recipe.'
     end
   end
 
@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
-      redirect_to @recipe, notice: "Recipe was successfully created."
+      redirect_to @recipe, notice: 'Recipe was successfully created.'
     else
       render :new
     end
@@ -34,9 +34,8 @@ class RecipesController < ApplicationController
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
-    redirect_to @recipe, notice: "Public status successfully updated."
+    redirect_to @recipe, notice: 'Public status successfully updated.'
   end
-
 
   # def edit
   #   @recipe = Recipe.find(params[:id])
@@ -62,9 +61,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if current_user == @recipe.user
       @recipe.destroy
-      redirect_to recipes_path, notice: "Recipe was successfully deleted."
+      redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
     else
-      redirect_to recipes_path, alert: "You are not authorized to delete this recipe."
+      redirect_to recipes_path, alert: 'You are not authorized to delete this recipe.'
     end
   end
 
@@ -74,4 +73,3 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :description, :prep_time, :cooking_time, :public)
   end
 end
-

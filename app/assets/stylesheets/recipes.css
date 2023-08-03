@@ -1,90 +1,86 @@
 .recipe-element {
-    display: flex;
-    border: solid black 1px;
-    width: 60vw;
-    align-items: baseline;
-    margin-bottom: 20px;
+  display: flex;
+  border: solid black 1px;
+  width: 60vw;
+  align-items: baseline;
+  margin-bottom: 20px;
 }
 
 .title-del {
-    width: 20%;
-    padding-left: 15px;
+  width: 20%;
+  padding-left: 15px;
 }
 
-.recipe-name, .del-btn {
-    justify-content: center;
-
+.recipe-name,
+.del-btn {
+  justify-content: center;
 }
 
 /* Style the delete button */
 .title-del button {
-    background-color: #dc3545;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-  }
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
 
-  .title-del button:hover {
-    opacity: 0.8; /* Add a bit of opacity when hovering over the buttons */
-  }
+.title-del button:hover {
+  opacity: 0.8; /* Add a bit of opacity when hovering over the buttons */
+}
 
-  .new-recipe-btn {
-    color: rgb(33, 69, 76);
-    font-weight: 500;
+.new-recipe-btn {
+  color: rgb(33, 69, 76);
+  font-weight: 500;
+}
 
-  }
+.title-del a {
+  text-decoration: none;
+  color: rgb(33, 69, 76);
+}
 
-  .title-del a {
-    text-decoration: none;
-    color: rgb(33, 69, 76);
-  }
+.title-del a:hover {
+  text-decoration: underline;
+}
 
-  .title-del a:hover {
-    text-decoration: underline;
-  }
-
-  .description {
-    width: 100%;
-  }
+.description {
+  width: 100%;
+}
 
 
-  /* Styles for the show view */
+/* Styles for the show view */
 
-  /* Add this CSS to the existing styles */
+/* Add this CSS to the existing styles */
 .show-recipe-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .show-recipe-container h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
+.show-recipe-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  .show-recipe-container p {
-    margin-bottom: 20px;
-  }
+.show-recipe-container p {
+  margin-bottom: 20px;
+}
 
-  .toggle-public-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    cursor: pointer;
-  }
+.toggle-public-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+}
 
-  .toggle-public-btn:hover {
-    opacity: 0.8;
-  }
+.toggle-public-btn:hover {
+  opacity: 0.8;
+}
 
-  .back-btn {
-    display: block;
-    margin-top: 20px;
-    color: #007bff;
-    text-decoration: none;
-  }
-
-
-
+.back-btn {
+  display: block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
