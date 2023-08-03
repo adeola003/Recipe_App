@@ -8,6 +8,13 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_food = RecipeFood.new
+
+    if @recipe.public? || current_user == @recipe.user
+      # Display the recipe details as in the wireframe
+    else
+      redirect_to recipes_path, alert: "You are not authorized to view this private recipe."
+    end
   end
 
   def new
