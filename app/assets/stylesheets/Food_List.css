@@ -45,7 +45,6 @@
   border-bottom: 1px solid #ddd;
 }
 
-/* Delete button style */
 .delete-button {
   background-color: #dc3545;
   color: #fff;
@@ -59,7 +58,6 @@
   background-color: #c82333;
 }
 
-/* Style for food details */
 .food-display {
   margin-top: 20px;
 }
@@ -126,4 +124,41 @@
 
 .error-alerts li {
   margin-bottom: 5px;
+}
+
+.recipe-items {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.recipe-items th,
+.recipe-items td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.recipe-items th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.recipe_name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.recipe_details {
+  color: #555;
+}
+
+.recipe_price {
+  font-weight: bold;
+}
+
+.no-recipes {
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
 }
