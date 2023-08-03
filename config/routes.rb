@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :foods, only: [:index, :show, :destroy, :new, :create]
-  # resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     member do
       patch :toggle_public

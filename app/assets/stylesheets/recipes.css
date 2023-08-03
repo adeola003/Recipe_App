@@ -1,51 +1,80 @@
-.recipe-element {
-  display: flex;
-  border: solid black 1px;
-  width: 60vw;
-  align-items: baseline;
-  margin-bottom: 20px;
-}
-
-.title-del {
-  width: 20%;
-  padding-left: 15px;
-}
-
-.recipe-name,
-.del-btn {
-  justify-content: center;
-}
-
-/* Style the delete button */
-.title-del button {
-  background-color: #dc3545;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.title-del button:hover {
-  opacity: 0.8; /* Add a bit of opacity when hovering over the buttons */
+/* General styles for the Recipes list */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }
 
 .new-recipe-btn {
-  color: rgb(33, 69, 76);
-  font-weight: 500;
+  display: block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 90px;
+}
+
+.new-recipe-btn:hover {
+  background-color: #45a049;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipe-element {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+  margin-right: 30px;
+  padding: 10px;
+  align-items: center;
+}
+
+.title-del {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title-del a {
+  font-size: 18px;
+  color: #007bff;
   text-decoration: none;
-  color: rgb(33, 69, 76);
 }
 
 .title-del a:hover {
   text-decoration: underline;
 }
 
+.del-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.del-btn:hover {
+  opacity: 0.8;
+}
+
 .description {
+  margin-top: 5px;
+  color: #666;
   width: 100%;
 }
+
+
+/* Styles for the show view */
 
 .show-recipe-container {
   max-width: 600px;
@@ -79,4 +108,45 @@
   margin-top: 20px;
   color: #007bff;
   text-decoration: none;
+}
+
+/* Styles for form fields, labels, and buttons */
+.recipe-form .field {
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.recipe-form label {
+  font-weight: bold;
+}
+
+.recipe-form input[type="text"],
+.recipe-form textarea {
+  width: 70%;
+  padding: 5px;
+}
+
+.recipe-form input[type="number"],
+.recipe-form input[type="checkbox"] {
+  width: auto;
+}
+
+.recipe-form .actions {
+  margin-top: 15px;
+}
+
+/* app/assets/stylesheets/recipes.css */
+
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.back-link:hover {
+  background-color: #ddd;
 }
