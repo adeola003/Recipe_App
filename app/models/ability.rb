@@ -1,17 +1,18 @@
 # app/models/ability.rb
 class Ability
-  include CanCan::Ability
-
-  def initialize(user)
-    user ||= User.new # Assign a guest user if 'user' is nil
-
-    # check if user role is admin and give admin management rights
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    can :read, :all
-    can :manage, Recipe, user_id: user.id
-    can :manage, RecipeFood, user_id: user.id
+    include CanCan::Ability
+  
+    def initialize(user)
+      user ||= User.new # Assign a guest user if 'user' is nil
+  
+      # check if user role is admin and give admin management rights
+      if user.admin?
+        can :manage, :all
+      else
+        can :read, :all
+        can :manage, Recipe, user_id: user.id
+        can :manage, RecipeFood, user_id: user.id
+      end
+    end
   end
-end
-#   end
+  
