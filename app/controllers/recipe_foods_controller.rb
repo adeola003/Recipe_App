@@ -4,7 +4,7 @@
 #       @recipe = Recipe.find_by(id: params[:recipe_id])
 #       @recipe_food = RecipeFood.new
 #     end
-  
+
 #     def create
 #       @recipe = Recipe.find_by(id: params[:recipe_id])
 #       @food_ids = RecipeFood.where(recipe_id: @recipe.id).map(&:food_id)
@@ -12,7 +12,7 @@
 #         return redirect_to recipe_path(@recipe.id),
 #                            alert: 'Recipe already has this ingredient!'
 #       end
-  
+
 #       @recipe_food = RecipeFood.new(recipe_food_params)
 #       @recipe_food.recipe_id = @recipe.id
 #       if @recipe_food.save
@@ -22,12 +22,12 @@
 #       end
 #       redirect_to recipe_path(@recipe)
 #     end
-  
+
 #     def edit
 #       @recipe = Recipe.find_by(id: params[:recipe_id])
 #       @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
 #     end
-  
+
 #     def update
 #       @recipe = Recipe.find_by(id: params[:recipe_id])
 #       @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
@@ -39,7 +39,7 @@
 #         redirect_to recipe_path(@recipe)
 #       end
 #     end
-  
+
 #     def destroy
 #       @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
 #       if @recipe_food.destroy
@@ -49,9 +49,9 @@
 #       end
 #       redirect_to recipe_path(id: params[:recipe_id])
 #     end
-  
+
 #     private
-  
+
 #     def recipe_food_params
 #       params.require(:recipe_food).permit(:quantity, :food_id)
 #     end
