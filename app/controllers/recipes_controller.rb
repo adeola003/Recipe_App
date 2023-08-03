@@ -3,11 +3,11 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.includes(:user).all
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:user, :recipe_foods).find(params[:id])
     @recipe_food = RecipeFood.new
 
     if @recipe.public? || current_user == @recipe.user
@@ -30,6 +30,13 @@ class RecipesController < ApplicationController
       render :new
     end
   end
+
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    redirect_to @recipe, notice: "Public status successfully updated."
+  end
+
 
   # def edit
   #   @recipe = Recipe.find(params[:id])

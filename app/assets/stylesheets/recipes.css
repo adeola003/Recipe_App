@@ -16,8 +16,6 @@
 
 }
 
-
-
 /* Style the delete button */
 .title-del button {
     background-color: #dc3545;
@@ -49,4 +47,44 @@
   .description {
     width: 100%;
   }
+
+
+  /* Styles for the show view */
+
+  /* Add this CSS to the existing styles */
+.show-recipe-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .show-recipe-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .show-recipe-container p {
+    margin-bottom: 20px;
+  }
+
+  .toggle-public-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .toggle-public-btn:hover {
+    opacity: 0.8;
+  }
+
+  .back-btn {
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+
 
