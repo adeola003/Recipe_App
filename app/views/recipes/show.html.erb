@@ -1,1 +1,12 @@
-<h2>Recipes details</h2>
+<h2><%= @recipe.name %></h2>
+<%= button_to toggle_public_recipe_path(@recipe), method: :patch, class: "toggle-public-btn" do %>
+  <%= @recipe.public? ? "Make Private" : "Make Public" %>
+<% end %>
+<p><strong>Description:</strong> <%= @recipe.description %></p>
+<p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
+<p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
+<p><strong>Public:</strong> <%= @recipe.public ? "Yes" : "No" %></p>
+
+<%= link_to "Back to Recipes", recipes_path %>
+
+
