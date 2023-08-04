@@ -9,9 +9,10 @@
 
 <%= link_to "Back to Recipes", recipes_path %>
 
+
 <% if current_user == @recipe.user %>
   <h3>Add New Food Item</h3>
-  <%= form_with(model: @recipe_food, url: recipe_foods_path, local: true) do |form| %>
+  <%= form_with(model: @recipe_food, url: recipe_foods_path(recipe_id: @recipe.id), local: true) do |form| %>
     <div class="field">
       <%= form.label :food_id, "Food Item" %>
       <%= form.collection_select(:food_id, Food.where(user_id: current_user), :id, :name) %>
