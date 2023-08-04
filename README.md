@@ -27,7 +27,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Blog App] <a name="about-project"></a>
+# 📖 [Recipe App] <a name="about-project"></a>
 
 **[Recipe APP]** keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
@@ -44,6 +44,7 @@
   <summary>Rspec</summary>
   <summary>Vscode</summary>
   <summary>Devise</summary>
+  <summary>Capybara</summary>
 </details>
 
 
@@ -97,6 +98,11 @@ Clone this repository to your desired folder:
 - GitHub: [@githubhandle](https://github.com/adeola003)
 - Twitter: [@twitterhandle](https://twitter.com/khadaf6)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou)
+
+👤 **Atif Zada**
+
+- GitHub: [@Atif-Zada](https://github.com/AtifZada)
+- LinkedIn: [@Atif-Zada](https://linkedin.com/in/AtifZada)
 
 
 <!-- FUTURE FEATURES -->
