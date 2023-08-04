@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 
+  resources :recipes, expect: [:update]
   resources :foods, only: [:index, :show, :destroy, :new, :create]
 
   resources :recipe_foods, only: [:edit, :create, :update, :destroy]
