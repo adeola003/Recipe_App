@@ -1,31 +1,31 @@
 def index
-    @recipe_foods = RecipeFood.all
-  end
+  @recipe_foods = RecipeFood.all
+end
 
-  def create
-    @recipe_food = RecipeFood.new(recipe_food_params)
-    @recipe_food.recipe_id = params[:recipo_id]
+def create
+  @recipe_food = RecipeFood.new(recipe_food_params)
+  @recipe_food.recipe_id = params[:recipo_id]
 
-    if @recipe_food.save
-      redirect_to "/recipes/#{params[:recipo_id]}"
-    else
-      render :new, status: 422
-    end
+  if @recipe_food.save
+    redirect_to "/recipes/#{params[:recipo_id]}"
+  else
+    render :new, status: 422
   end
+end
 
-  # DELETE recipe_foods
-  def destroy
-    @recipe = RecipeFood.find_by(food_id: params[:id], recipe_id: params[:recipo_id])
-    if @recipe.destroy
-      redirect_to(request.referrer || root_path)
-    else
-      flash[:error] = 'error'
-    end
+# DELETE recipe_foods
+def destroy
+  @recipe = RecipeFood.find_by(food_id: params[:id], recipe_id: params[:recipo_id])
+  if @recipe.destroy
+    redirect_to(request.referrer || root_path)
+  else
+    flash[:error] = 'error'
   end
+end
 
   private
 
-  # Allow list of trusted parameters.
-  def recipe_food_params
-    params.require(:recipe_food).permit(:food_id, :quantity)
-  end
+# Allow list of trusted parameters.
+def recipe_food_params
+  params.require(:recipe_food).permit(:food_id, :quantity)
+end
