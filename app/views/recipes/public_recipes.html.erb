@@ -15,7 +15,6 @@
         <td class="recipe_name"><%= recipe.name %></td>
         <td class="recipe_details">by: <%= recipe.user.name %></td>
         <td class="recipe_details"><%= recipe.recipe_foods.length %></td>
-
         <% total_price = recipe.recipe_foods.sum { |food| food.food.price } %>
         <td class="recipe_price">$<%= total_price %></td>
       </tr>
