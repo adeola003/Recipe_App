@@ -18,8 +18,7 @@ RSpec.feature 'Shopping List', type: :feature do
 
     # Visit the shopping list page
     visit shopping_list_path
-    save_and_open_page
-
+  
     # Assert that the page displays the shopping list details
     expect(page).to have_content("Shopping List for #{user.name}")
     expect(page).to have_content('Amount of food items to buy: 1')
