@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
 
     # Calculate total price
     @total_price = @foods.sum(&:price)
-    #fetch list of recipes foods
+    # fetch list of recipes foods
     @recipe_foods = @recipe.recipe_foods.includes(:food)
   end
 
