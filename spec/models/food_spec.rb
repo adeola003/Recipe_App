@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   describe 'associations' do
-    it 'should have many recipe_foods' do
+    it 'It should have multiple recipe_foods associated with it' do
       expect(Food.reflect_on_association(:recipe_foods).macro).to eq(:has_many)
     end
 
-    it 'It has to belong to user' do
+    it 'It must be associated with a user' do
       expect(Food.reflect_on_association(:user).macro).to eq(:belongs_to)
     end
   end
@@ -19,23 +19,23 @@ RSpec.describe Food, type: :model do
       expect(food).to be_valid
     end
 
-    it 'should be valide without name' do
+    it 'It should be valid even without a name' do
       food.name = nil
       expect(food).not_to be_valid
     end
 
-    it 'should not have a name greater than 250 characters' do
+    it 'The name should be limited to 250 characters or less' do
       food.name = 'a' * 251
-      expect(food).not_to be_valid
-    end
-
-    it 'should not be valid for a measurement_unit' do
-      food.measurement_unit = nil
       expect(food).not_to be_valid
     end
 
     it 'should not be valid for a quantity' do
       food.quantity = nil
+      expect(food).not_to be_valid
+    end
+
+    it 'should not be valid for a measurement_unit' do
+      food.measurement_unit = nil
       expect(food).not_to be_valid
     end
 
