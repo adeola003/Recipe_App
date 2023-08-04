@@ -1,58 +1,30 @@
-# class RecipeFoodsController < ApplicationController
-#     # before_action :authenticate_user!
-#     def new
-#       @recipe = Recipe.find_by(id: params[:recipe_id])
-#       @recipe_food = RecipeFood.new
-#     end
+class RecipeFoodsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_recipe, only: %i[show toggle_public]
 
-#     def create
-#       @recipe = Recipe.find_by(id: params[:recipe_id])
-#       @food_ids = RecipeFood.where(recipe_id: @recipe.id).map(&:food_id)
-#       if @food_ids.include?(recipe_food_params[:food_id].to_i)
-#         return redirect_to recipe_path(@recipe.id),
-#                            alert: 'Recipe already has this ingredient!'
-#       end
+  def show
+    @recipe_food = RecipeFood.new # Initialize a new RecipeFood instance for the form
+    # Rest of the code
+  end
 
-#       @recipe_food = RecipeFood.new(recipe_food_params)
-#       @recipe_food.recipe_id = @recipe.id
-#       if @recipe_food.save
-#         flash[:notice] = 'Bravo!'
-#       else
-#         flash[:alert] = 'OOPSY Daisy!'
-#       end
-#       redirect_to recipe_path(@recipe)
-#     end
+  def create
+    @recipe_food = RecipeFood.new(recipe_food_params)
 
-#     def edit
-#       @recipe = Recipe.find_by(id: params[:recipe_id])
-#       @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
-#     end
+    # Set the recipe ID to associate the food item with the current recipe
+    @recipe_food.recipe = Recipe.find(params[:recipe_id])
 
-#     def update
-#       @recipe = Recipe.find_by(id: params[:recipe_id])
-#       @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
-#       if @recipe_food.update(recipe_food_params)
-#         flash[:notice] = 'Bravo!'
-#         redirect_to recipe_path(@recipe.id)
-#       else
-#         flash[:alert] = 'OOPSY Daisy!'
-#         redirect_to recipe_path(@recipe)
-#       end
-#     end
+    if @recipe_food.save
+      redirect_to @recipe_food.recipe, notice: 'Food item was successfully added to the recipe.'
+    else
+      # Handle validation errors if any
+      @recipe = @recipe_food.recipe
+      render 'recipes/show'
+    end
+  end
 
-#     def destroy
-#       @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
-#       if @recipe_food.destroy
-#         flash[:notice] = 'Bravo!'
-#       else
-#         flash[:alert] = 'OOPSY Daisy!'
-#       end
-#       redirect_to recipe_path(id: params[:recipe_id])
-#     end
+  private
 
-#     private
-
-#     def recipe_food_params
-#       params.require(:recipe_food).permit(:quantity, :food_id)
-#     end
-#   end
+  def recipe_food_params
+    params.require(:recipe_food).permit(:food_id, :quantity)
+  end
+end
