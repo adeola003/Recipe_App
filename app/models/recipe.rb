@@ -3,9 +3,9 @@ class Recipe < ApplicationRecord
   has_many :recipe_foods, dependent: :destroy
 
   validates :name, presence: true
+  validates :user_id, presence: true
   validates :cooking_time, numericality: { greater_than: 0 }
   validates :prep_time, numericality: { greater_than: 0 }
-  validates :user_id, presence: true
 
   def toggle_public
     update(public: !public)
