@@ -75,19 +75,100 @@ h2 {
 
 /* Styles for the show view */
 
-.show-recipe-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+/* Center the content vertically and horizontally */
+.center-content {
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
-.show-recipe-container h2 {
+/* Style for the recipe name */
+.recipe-name {
   font-size: 24px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
-.show-recipe-container p {
-  margin-bottom: 20px;
+/* Style for the recipe description */
+.recipe-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.action-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Style for the back button */
+.back-btn {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: #eee;
+  padding: 5px 10px;
+  color: #333;
+  border-radius: 5px;
+  width: 100px;
+}
+
+/* Style for the button to add new food item */
+.add-food-item-btn {
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+/* Style for the heading of the food items table */
+.food-items-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Style for the table containing food items */
+.food-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+/* Style for table header cells */
+.food-items-table th {
+  background-color: #f3f3f3;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Style for table data cells */
+.food-items-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style for the buttons in the actions column */
+.edit-food-btn,
+.remove-food-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.edit-food-btn {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.remove-food-btn {
+  background-color: #f44336;
+  color: #fff;
 }
 
 .toggle-public-btn {
@@ -102,12 +183,6 @@ h2 {
   opacity: 0.8;
 }
 
-.back-btn {
-  display: block;
-  margin-top: 20px;
-  color: #007bff;
-  text-decoration: none;
-}
 
 /* Styles for form fields, labels, and buttons */
 .recipe-form .field {
