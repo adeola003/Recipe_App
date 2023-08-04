@@ -1,0 +1,33 @@
+
+<%= stylesheet_link_tag 'Food_List', media: 'all' %>
+<div class="shop-list-cont">
+<div class="upper-cont">
+<h1 class="user-name">Shopping List for <%= current_user.name %></h1>
+
+<div class="shopping-list">
+    <h3>Amount of food items to buy: <span><%= @recipe_foods.length %></span></h3>
+    <h3>Total value of food needed: <span>$<%= @recipe_foods.map { |r| r.food.price * (r.quantity - r.food.quantity) }.sum %></span></h3>
+</div>
+</div>
+
+<table class="shop-details">
+    <thead>
+        <tr>
+            <th class="items-title">Food</th>
+            <th class="items-title">Quantity</th>
+            <th class="items-title">Price</th>
+            <th class="items-title">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @recipe_foods.each do |recipe|%>
+            <tr>
+                <td class="food-name"><%= recipe.food.name %> (<%= recipe.food.quantity %>)</td>
+                <td class="food-quant"><%= recipe.quantity %> <%= recipe.food.measurement_unit %></td>
+                <td class="food-price">$<%= recipe.food.price %></td>
+                <td class="food-amount">$<%= recipe.food.price.to_i * (recipe.quantity - recipe.food.quantity) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
