@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
 
   resources :foods, only: [:index, :show, :destroy, :new, :create]
-  
+  resources :recipes, expect: [:update]
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     member do
       patch :toggle_public
     end
   end
   get '/public_recipes', to: 'recipes#public_recipes'
+  get '/shopping_list', to: 'shopping_list#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
