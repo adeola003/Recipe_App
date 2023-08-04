@@ -12,19 +12,17 @@ RSpec.describe User, type: :model do
       user.password = 'short'
       expect(user).to_not be_valid
     end
-    
+
     it 'invalid without email' do
-        user.email = nil
-        expect(user).to_not be_valid
-      end
-  
+      user.email = nil
+      expect(user).to_not be_valid
+    end
   end
 
   describe 'associations' do
-    
     it 'It should have multiple recipes associated with it' do
-        expect(User.reflect_on_association(:recipes).macro).to eq(:has_many)
-      end
+      expect(User.reflect_on_association(:recipes).macro).to eq(:has_many)
+    end
     it 'It should have multiple foods associated with it' do
       expect(User.reflect_on_association(:foods).macro).to eq(:has_many)
     end
