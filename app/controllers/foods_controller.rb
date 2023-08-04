@@ -1,7 +1,11 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: %i[index show]
   def index
-    @food = Food.where(user_id: current_user.id)
+    @foods = if user_signed_in?
+               Food.where(user: current_user)
+             else
+               []
+             end
   end
 
   def new
