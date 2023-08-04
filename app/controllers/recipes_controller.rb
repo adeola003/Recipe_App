@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @recipes = Recipe.includes(:user).all
+    @recipes = Recipe.includes([:user]).where(user: current_user)
   end
 
   def show
@@ -15,6 +15,13 @@ class RecipesController < ApplicationController
     else
       redirect_to recipes_path, alert: 'You are not authorized to view this private recipe.'
     end
+    @foods = Food.joins(:recipe_foods).where(recipe_foods: { recipe_id: @recipe.id })
+
+    # Calculate total food items
+    @total_food_items = @foods.length
+
+    # Calculate total price
+    @total_price = @foods.sum(&:price)
   end
 
   def new
@@ -56,6 +63,9 @@ class RecipesController < ApplicationController
   #     redirect_to recipes_path, alert: "You are not authorized to edit this recipe."
   #   end
   # end
+  def public_recipes
+    @public = Recipe.includes(:user, :recipe_foods).where(public: true).order('created_at DESC')
+  end
 
   def destroy
     @recipe = Recipe.find(params[:id])

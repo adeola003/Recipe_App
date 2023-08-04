@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
-    @food = Food.all
+    @food = Food.where(user_id: current_user.id)
   end
 
   def new
@@ -29,7 +29,7 @@ class FoodsController < ApplicationController
     if @food.destroy
       redirect_to foods_path, notice: 'Food has been deleted successfully'
     else
-      redirect_to foods_path, alert: 'There is an error while deleting the food'
+      redirect_to foods_path, alert: 'An error occured while deleting the food'
     end
   end
 
