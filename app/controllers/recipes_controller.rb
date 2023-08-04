@@ -7,6 +7,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    # @recipe = Recipe.find(params[:id])
+    # @foods = Food.joins(:recipe_foods).where(recipe_foods: { recipe_id: @recipe.id })
     @recipe = Recipe.includes(:user, :recipe_foods).find(params[:id])
     @recipe_food = RecipeFood.new
 

@@ -10,3 +10,23 @@
 <%= link_to "Back to Recipes", recipes_path %>
 
 
+<% if current_user == @recipe.user %>
+  <h3>Add New Food Item</h3>
+  <%= form_with(model: @recipe_food, url: recipe_foods_path(recipe_id: @recipe.id), local: true) do |form| %>
+    <div class="field">
+      <%= form.label :food_id, "Food Item" %>
+      <%= form.collection_select(:food_id, Food.where(user_id: current_user), :id, :name) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Add Food Item" %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Display existing recipe foods (ingredients) here -->
