@@ -12,7 +12,7 @@
     </tr>
     <% @public.each do |recipe| %>
       <tr>
-        <td class="recipe_name"><%= recipe.name %></td>
+        <td class="recipe_name"><%= link_to recipe.name, recipe_path(recipe), class: "recipe.name" %></td>
         <td class="recipe_details">by: <%= recipe.user.name %></td>
         <td class="recipe_details"><%= recipe.recipe_foods.length %></td>
         <% total_price = recipe.recipe_foods.sum { |food| food.food.price } %>
