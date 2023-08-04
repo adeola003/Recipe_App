@@ -11,11 +11,13 @@
 
 <div class="action-btns">
 <%= link_to "Back to Recipes", recipes_path, class: "back-btn" %>
+<%= link_to "Shopping List", shopping_list_path, class: "back-btn" %>
 
 <% if current_user == @recipe.user %>
-  <%= link_to "Add New Food Item", new_recipe_food_path(recipe_id: @recipe.id), class: "add-food-item-btn" %>
+  <%= link_to "Add Ingredient", new_recipe_food_path(recipe_id: @recipe.id), class: "add-food-item-btn" %>
 <% end %>
 </div>
+<hr>
 
 
 <!-- Display existing recipe foods (ingredients) here -->

@@ -185,29 +185,47 @@ h2 {
 
 
 /* Styles for form fields, labels, and buttons */
-.recipe-form .field {
-  margin-bottom: 10px;
-  border-radius: 8px;
+/* Center the form on the page */
+.recipe-form {
+  width: 50%;
+  margin: 0 auto;
 }
 
-.recipe-form label {
+/* Style the form fields */
+.form-title {
+  text-align: center;
+  font-size: large;
+  font-weight: 900;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+.form-field label {
+  display: block;
   font-weight: bold;
 }
 
-.recipe-form input[type="text"],
-.recipe-form textarea {
-  width: 70%;
+.form-control {
+  width: 100%;
   padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.recipe-form input[type="number"],
-.recipe-form input[type="checkbox"] {
-  width: auto;
+.form-check {
+  margin-bottom: 10px;
 }
 
-.recipe-form .actions {
-  margin-top: 15px;
+.form-check-label {
+  font-weight: normal;
 }
+
+.form-check-input {
+  margin-right: 5px;
+}
+
 
 /* app/assets/stylesheets/recipes.css */
 
