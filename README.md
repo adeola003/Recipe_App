@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+<a name="readme-top">Adeola & Atif</a>
 
 <div align="center">
 
@@ -79,7 +79,7 @@ Clone this repository to your desired folder:
 
 ```sh
   git clone https://github.com/adeola003/Recipe_App.git
-  cd Recipe_app
+  cd Recipe_App
 ```
 > Install Gemfile
 
