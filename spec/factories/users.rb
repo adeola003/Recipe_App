@@ -5,10 +5,9 @@ FactoryBot.define do
     password { 'password' }
   end
   factory :food do
-    name { "Example Food" }
-    measurement_unit { "pieces" }
+    name { 'Example Food' }
+    measurement_unit { 'pieces' }
     price { 5 }
     quantity { 10 }
   end
-
 end

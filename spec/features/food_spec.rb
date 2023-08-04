@@ -32,8 +32,8 @@ RSpec.feature 'Food', type: :feature do
 
     # Assert that the page displays the food details
     expect(page).to have_content(food.name)
-    expect(page).to have_content("Measurement: 0")
-    expect(page).to have_content("Price in $: 1")
-    expect(page).to have_content("Quantity: 10")
+    expect(page).to have_content('Measurement: 0')
+    expect(page).to have_content('Price in $: 1')
+    expect(page).to have_content('Quantity: 10')
   end
 end

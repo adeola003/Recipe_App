@@ -10,12 +10,12 @@ RSpec.feature 'Recipe', type: :feature do
 
   scenario 'User visits the recipe index page' do
     # Create some example recipes in the database associated with the user
-    recipe1 = Recipe.create(name: 'Apple Pie', description: 'Delicious Apple Pie', prep_time: 20, cooking_time: 40, user: user)
-    recipe2 = Recipe.create(name: 'Pasta', description: 'Tasty Pasta', prep_time: 15, cooking_time: 30, user: user)
+    Recipe.create(name: 'Apple Pie', description: 'Delicious Apple Pie', prep_time: 20, cooking_time: 40,
+                  user:)
+    Recipe.create(name: 'Pasta', description: 'Tasty Pasta', prep_time: 15, cooking_time: 30, user:)
 
     # Visit the recipe index page
     visit recipes_path
-
 
     # Assert that the page displays the recipe items
     expect(page).to have_content('Recipes list')
@@ -27,7 +27,8 @@ RSpec.feature 'Recipe', type: :feature do
 
   scenario 'User visits the recipe show page' do
     # Create an example recipe item in the database associated with the user
-    recipe = Recipe.create(name: 'Apple Pie', description: 'Delicious Apple Pie', prep_time: 20, cooking_time: 40, user: user)
+    recipe = Recipe.create(name: 'Apple Pie', description: 'Delicious Apple Pie', prep_time: 20, cooking_time: 40,
+                           user:)
 
     # Visit the recipe show page
     visit recipe_path(recipe)
@@ -42,8 +43,10 @@ RSpec.feature 'Recipe', type: :feature do
 
   scenario 'User visits the public recipes page' do
     # Create some example recipes in the database with public set to true
-    public_recipe1 = Recipe.create(name: 'Public Recipe 1', description: 'Public Recipe Description 1', prep_time: 30, cooking_time: 60, user: user, public: true)
-    public_recipe2 = Recipe.create(name: 'Public Recipe 2', description: 'Public Recipe Description 2', prep_time: 25, cooking_time: 50, user: user, public: true)
+    Recipe.create(name: 'Public Recipe 1', description: 'Public Recipe Description 1', prep_time: 30,
+                  cooking_time: 60, user:, public: true)
+    Recipe.create(name: 'Public Recipe 2', description: 'Public Recipe Description 2', prep_time: 25,
+                  cooking_time: 50, user:, public: true)
 
     # Visit the public recipes page
     visit public_recipes_path
