@@ -15,8 +15,6 @@ RSpec.feature 'Food', type: :feature do
   scenario 'User visits the food index page' do
     # Visit the food index page
     visit foods_path
-    save_and_open_page
-
     # Assert that the page displays the food items
     expect(page).to have_content('Food List')
     expect(page).to have_content('Apple')
@@ -31,7 +29,6 @@ RSpec.feature 'Food', type: :feature do
 
     # Visit the food show page
     visit food_path(food)
-    save_and_open_page
 
     # Assert that the page displays the food details
     expect(page).to have_content(food.name)
