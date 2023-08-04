@@ -1,32 +1,52 @@
-<h2><%= @recipe.name %></h2>
+<div class="center-content">
+  <div class="recipe-details">
+    <h2 class="recipe-name"><%= @recipe.name %></h2>
 <%= button_to toggle_public_recipe_path(@recipe), method: :patch, class: "toggle-public-btn" do %>
   <%= @recipe.public? ? "Make Private" : "Make Public" %>
 <% end %>
-<p><strong>Description:</strong> <%= @recipe.description %></p>
+<p class="recipe-description"><strong>Description:</strong> <%= @recipe.description %></p>
 <p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
 <p><strong>Cooking Time:</strong> <%= @recipe.cooking_time %> minutes</p>
 <p><strong>Public:</strong> <%= @recipe.public ? "Yes" : "No" %></p>
 
-<%= link_to "Back to Recipes", recipes_path %>
-
+<div class="action-btns">
+<%= link_to "Back to Recipes", recipes_path, class: "back-btn" %>
+<%= link_to "Shopping List", shopping_list_path, class: "back-btn" %>
 
 <% if current_user == @recipe.user %>
-  <h3>Add New Food Item</h3>
-  <%= form_with(model: @recipe_food, url: recipe_foods_path(recipe_id: @recipe.id), local: true) do |form| %>
-    <div class="field">
-      <%= form.label :food_id, "Food Item" %>
-      <%= form.collection_select(:food_id, Food.where(user_id: current_user), :id, :name) %>
-    </div>
-
-    <div class="field">
-      <%= form.label :quantity %>
-      <%= form.number_field :quantity %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit "Add Food Item" %>
-    </div>
-  <% end %>
+  <%= link_to "Add Ingredient", new_recipe_food_path(recipe_id: @recipe.id), class: "add-food-item-btn" %>
 <% end %>
+</div>
+<hr>
+
 
 <!-- Display existing recipe foods (ingredients) here -->
+<h3 class="food-items-heading">Food Items</h3>
+<table class="food-items-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unit</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.food.measurement_unit %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+        <td>
+          <%= link_to "Edit", edit_recipe_food_path(recipe_food), class: "edit-food-btn" %>
+          <%= link_to "Remove", recipe_food_path(recipe_food), method: :delete, data: { confirm: "Are you sure you want to remove this food item from the recipe?" }, class: "remove-food-btn" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>

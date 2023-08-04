@@ -7,6 +7,11 @@ class RecipeFoodsController < ApplicationController
     # Rest of the code
   end
 
+  def new
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.new(recipe_id: params[:recipe_id])
+  end
+
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
 
@@ -26,5 +31,9 @@ class RecipeFoodsController < ApplicationController
 
   def recipe_food_params
     params.require(:recipe_food).permit(:food_id, :quantity)
+  end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
 end

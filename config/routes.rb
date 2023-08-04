@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :recipes, expect: [:update]
   resources :foods, only: [:index, :show, :destroy, :new, :create]
 
-  resources :recipe_foods, only: [:edit, :create, :update, :destroy]
+  resources :recipe_foods, only: [:edit, :create, :update, :destroy, :new]
 
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     member do
