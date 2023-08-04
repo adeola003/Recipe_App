@@ -81,6 +81,32 @@ Clone this repository to your desired folder:
   git clone https://github.com/adeola003/Recipe_App.git
   cd Recipe_app
 ```
+> Install Gemfile
+
+```
+$ bundle install
+```
+
+> Run the app
+
+```
+$ rails s
+```
+
+
+## Rubocop
+> To check linter
+
+```
+$ rubocop --color
+```
+
+## Rspec
+> To run testing
+```
+$ rspec
+```
+
 
 ### Install
 -Command: bundle install, npm install
