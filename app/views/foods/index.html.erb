@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag 'Food_List', media: 'all' %>
+
+<div class="main-cont">
+  <h1>Food List</h1>
+  <div class="btn-cont"><%= link_to 'Add Food', '/foods/new', class: 'add-food-button' %></div>
+
+  <% if @foods.any? %>
+    <table class="list-items">
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= link_to "#{food.name}", food_path(food.id), class: 'food-link' %></td>
+            <td><%= food.measurement_unit %></td>
+            <td>$<%= food.price %></td>
+            <td><%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you certain you wish to delete this food item?" }, class: 'delete-button' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No foods found.</p>
+  <% end %>
+</div>

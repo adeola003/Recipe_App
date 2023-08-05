@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'Food_List', media: 'all' %>
+
+<div class="form-cont">
+<h1>Add new food here</h1>
+
+<% if @food.errors.any? %>
+  <div class="error-alerts">
+    <p>
+      <%= pluralize(@food.errors.count, "error") %>
+      Found:
+    </p>
+    <ul>
+      <% @food.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+  <%= form_with model: @food, url: foods_path, method: :post do |form| %>
+    <div class="form-title">Name:</div>
+    <%= form.text_field :name, class: "form-text" %>
+
+    <div class="form-title">Measurement Unit:</div>
+    <%= form.text_field :measurement_unit, class: "form-text" %>
+
+    <div class="form-title">Price:</div>
+    <%= form.text_field :price, class: "form-text" %>
+
+    <div class="form-title">Quantity:</div>
+    <%= form.number_field :quantity, class: "form-text" %>
+    <%= form.submit "Add Food", class: "form-btn" %>
+  <% end %>
+</div>

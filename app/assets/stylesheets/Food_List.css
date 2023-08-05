@@ -1,0 +1,239 @@
+.main-cont {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10%;
+}
+
+.btn-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 5%;
+}
+
+.add-food-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-food-button:hover {
+  background-color: #45a049;
+}
+
+.list-items {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-items th {
+  padding: 10px;
+  text-align: left;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-items td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.food-display {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
+}
+
+.food-display h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.food-display h2 {
+  font-size: 18px;
+}
+
+.food-display h2 + h2 {
+  margin-top: 10px;
+}
+
+.form-cont {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 90vh;
+}
+
+.form-cont h1 {
+  padding-right: 8%;
+}
+
+.form-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-text {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.form-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4c5eaf;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  padding-left: 5%;
+}
+
+.form-btn:hover {
+  background-color: #171888;
+}
+
+.error-alerts {
+  margin-top: 20px;
+  color: red;
+  font-size: 14px;
+}
+
+.error-alerts ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-alerts li {
+  margin-bottom: 5px;
+}
+
+.recipe-items {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.recipe-items th,
+.recipe-items td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.recipe-items th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.recipe_name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.recipe_details {
+  color: #555;
+}
+
+.recipe_price {
+  font-weight: bold;
+}
+
+.no-recipes {
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
+}
+
+.user-name {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.shop-list-cont {
+  margin: 0 20%;
+}
+
+.upper-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping-list {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 3%;
+}
+
+.shopping-list h3 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.shop-details {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shop-details th,
+.shop-details td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.items-title {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+.food-name {
+  width: 40%;
+}
+
+.food-quant,
+.food-price,
+.food-amount {
+  width: 20%;
+}
+
+.food-quant,
+.food-amount {
+  text-align: center;
+}
